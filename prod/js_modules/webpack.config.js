@@ -1,8 +1,9 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
   entry: './src/index.js',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
@@ -14,25 +15,22 @@ const config = {
         test: /\.js$/
       },
       {
-        loader: ExtractTextPlugin.extract({
-          loader: 'css-loader'
-        }),
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
         test: /\.css$/
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: { limit: 40000 } // 40kb
-          },
-          'image-webpack-loader'
-        ]
+        type: 'asset',
+        parser: {
+         dataUrlCondition: {
+           maxSize: 40000 // 40kb
+         }
+       }
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new MiniCssExtractPlugin({ filename:'style.css' })
   ]
 };
 
