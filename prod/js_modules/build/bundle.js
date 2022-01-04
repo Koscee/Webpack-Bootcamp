@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var button = document.createElement('button');\nbutton.innerText = 'Click me';\n\nbutton.onclick = function () {\n  // note: this is an async call which returns a promise\n  __webpack_require__.e(/*! import() */ \"src_image_viewer_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./image_viewer */ \"./src/image_viewer.js\")).then(function (module) {\n    console.log(module);\n  });\n};\n\ndocument.body.appendChild(button);\n\n//# sourceURL=webpack://js_modules/./src/index.js?");
+eval("var button = document.createElement('button');\nbutton.innerText = 'Click me';\n\nbutton.onclick = function () {\n  // note: this is an async call which returns a promise\n  __webpack_require__.e(/*! import() */ \"src_image_viewer_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./image_viewer */ \"./src/image_viewer.js\")).then(function (module) {\n    module[\"default\"]();\n  });\n};\n\ndocument.body.appendChild(button);\n\n//# sourceURL=webpack://js_modules/./src/index.js?");
 
 /***/ })
 
