@@ -9,7 +9,7 @@ import '../style/materialize.css';
 import '../style/react-range.css';
 import '../style/style.css';
 
-console.log('EntryPoint');
+console.log('EntryPoint index.sdf');
 
 const App = () => {
   const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
